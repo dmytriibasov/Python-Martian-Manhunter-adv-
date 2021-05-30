@@ -29,37 +29,35 @@ class TestEmployee(unittest.TestCase):
         self.employee_1 = Employee('Tomas', 'Anderson', 120000)
         self.employee_2 = Employee('Morpheus', 'Nebuchadnezzar', 100000)
         self.employee_3 = Employee('Cypher', 'Reagan', 50000)
+        self.employees = [self.employee_1, self.employee_2, self.employee_3]
 
     def test_email(self):
-        self.assertEqual(self.employee_1.email.lower(), 'tomas.anderson@email.com')
-        self.assertEqual(self.employee_2.email.lower(), 'morpheus.nebuchadnezzar@email.com')
-        self.assertEqual(self.employee_3.email.lower(), 'cypher.reagan@email.com')
+
+        for employee in self.employees:
+            self.assertEqual(employee.email.lower(), f'{employee.first.lower()}.{employee.last.lower()}@email.com')
 
     def test_fullname(self):
-        self.assertEqual(self.employee_1.fullname.lower(), 'tomas anderson')
-        self.assertEqual(self.employee_2.fullname.lower(), 'morpheus nebuchadnezzar')
-        self.assertEqual(self.employee_3.fullname.lower(), 'cypher reagan')
+
+        for employee in self.employees:
+            self.assertEqual(employee.fullname.lower(), f'{employee.first.lower()} {employee.last.lower()}')
 
     def test_apply_raise(self):
-        self.employee_1.apply_raise()
-        self.assertEqual(self.employee_1.pay, 126000.0)
-        self.assertEqual(self.employee_1.pay, 126000)
-        self.employee_2.apply_raise()
-        self.assertEqual(self.employee_2.pay, 105000)
-        self.employee_3.apply_raise()
-        self.assertEqual(self.employee_3.pay, 52500)
+
+        for employee in self.employees:
+            employee_first_pay = employee.pay           # temporary variable to save the employee pay before raise
+            employee.apply_raise()
+            self.assertEqual(employee.pay, employee_first_pay*employee.raise_amt)
 
     @patch('employee.requests.get')
     def test_monthly_schedule(self, mocker):
+
         mocker.side_effect = MockTestTrue
-        self.assertEqual(self.employee_1.monthly_schedule('May'), 'response.ok = True')
-        self.assertEqual(self.employee_2.monthly_schedule('June'), 'response.ok = True')
-        self.assertEqual(self.employee_3.monthly_schedule('July'), 'response.ok = True')
+        for employee in self.employees:
+            self.assertEqual(employee.monthly_schedule('May'), 'response.ok = True')
 
         mocker.side_effect = MockTestFalse
-        self.assertEqual(self.employee_1.monthly_schedule('January'), 'Bad Response!')
-        self.assertEqual(self.employee_2.monthly_schedule('February'), 'Bad Response!')
-        self.assertEqual(self.employee_3.monthly_schedule('March'), 'Bad Response!')
+        for employee in self.employees:
+            self.assertEqual(employee.monthly_schedule('January'), 'Bad Response!')
 
 
 if __name__ == '__main__':
