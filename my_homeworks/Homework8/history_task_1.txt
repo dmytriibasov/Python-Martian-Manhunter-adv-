@@ -1,0 +1,22 @@
+docker images
+docker rmi flask
+docker ps
+docker rmi -f flask
+docker images
+docker built . --tag flask_app
+docker build . --tag flask
+docker images
+docker run flask
+docker stop aea
+docker run -d flask
+docker inspect d5
+docker inspect flask > inspect_task_1.txt
+ls
+cat inspect_task_1.txt
+docker attach d5
+docker logs
+docker run flask
+docker run -it flask
+docker ps -a
+
+

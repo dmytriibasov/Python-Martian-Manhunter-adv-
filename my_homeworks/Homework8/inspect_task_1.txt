@@ -1,0 +1,97 @@
+[
+    {
+        "Id": "sha256:4b603e07bf0874f4536353da9b876820b35aacb73f2673691952ed574fc6f180",
+        "RepoTags": [
+            "flask:latest"
+        ],
+        "RepoDigests": [],
+        "Parent": "sha256:512678edff9d055edaa292c3c640a550d22e79d7174c48591ce2e09ceccea825",
+        "Comment": "",
+        "Created": "2021-05-31T13:56:21.77400837Z",
+        "Container": "71a7118d3a1cd2534e4ecffa709659a0d33cb5173b61fcf3c454f7a71a0d4544",
+        "ContainerConfig": {
+            "Hostname": "71a7118d3a1c",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "ENTRYPOINT [\"/bin/sh\" \"-c\" \"FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080\"]"
+            ],
+            "Image": "sha256:512678edff9d055edaa292c3c640a550d22e79d7174c48591ce2e09ceccea825",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/bin/sh",
+                "-c",
+                "FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080"
+            ],
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "20.10.6",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": null,
+            "Image": "sha256:512678edff9d055edaa292c3c640a550d22e79d7174c48591ce2e09ceccea825",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/bin/sh",
+                "-c",
+                "FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080"
+            ],
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 422380193,
+        "VirtualSize": 422380193,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/0b63f076078c467dad11a770170d17fae7d44229aed018318ed8f4a53f08764a/diff:/var/lib/docker/overlay2/acfa9736990b7e4f320dba23451b43b13529f7bd272b5a47e1a4e0d2cec5d7ce/diff:/var/lib/docker/overlay2/d608fc1e67f738852a0258d6d498d3694943426356208d9146d2583c54eabf42/diff:/var/lib/docker/overlay2/71bf0302ef8034b59ac132a4276fac2415952ab7a404876434d5d04cc7f74abd/diff:/var/lib/docker/overlay2/b644472b3989f8e2b9868a50d68dcb55eeecfad400df1cc3d76268f3e7d01b02/diff",
+                "MergedDir": "/var/lib/docker/overlay2/41326b7347a1bd4dcbf86f8710f41ff9ce8e4bdb61c77e9242ad05909158ae4a/merged",
+                "UpperDir": "/var/lib/docker/overlay2/41326b7347a1bd4dcbf86f8710f41ff9ce8e4bdb61c77e9242ad05909158ae4a/diff",
+                "WorkDir": "/var/lib/docker/overlay2/41326b7347a1bd4dcbf86f8710f41ff9ce8e4bdb61c77e9242ad05909158ae4a/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439",
+                "sha256:63c99163f47292f80f9d24c5b475751dbad6dc795596e935c5c7f1c73dc08107",
+                "sha256:2f140462f3bcf8cf3752461e27dfd4b3531f266fa10cda716166bd3a78a19103",
+                "sha256:c906959b5c2211e5a218c24f3ea0b0209a7fd07f31d7b0058c37092e9b61e150",
+                "sha256:afc98d2402f6e60bb2dfd160926e8c4d9b466cbf51a8e23afb7e939ca1dacf26",
+                "sha256:3d6a3968115d3add4b75c207757ca53757b171b68940dce7991778728b28c2ca"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2021-05-31T16:56:21.78384558+03:00"
+        }
+    }
+]
