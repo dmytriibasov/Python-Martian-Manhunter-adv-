@@ -1,0 +1,35 @@
+dmytriii@dmytrii-hp-pavilion-laptop-14-dv0xxx:~/Desktop/Cursor/cursor_git/my_homeworks/Homework9$ docker save -o my_ubuntu.tar 7e0
+dmytriii@dmytrii-hp-pavilion-laptop-14-dv0xxx:~/Desktop/Cursor/cursor_git/my_homeworks/Homework9$ ls
+my_ubuntu.tar
+dmytriii@dmytrii-hp-pavilion-laptop-14-dv0xxx:~/Desktop/Cursor/cursor_git/my_homeworks/Homework9$ docker ls -sh my_ubuntu.tar
+unknown shorthand flag: 's' in -sh
+See 'docker --help'.
+dmytriii@dmytrii-hp-pavilion-laptop-14-dv0xxx:~/Desktop/Cursor/cursor_git/my_homeworks/Homework9$ ls -sh my_ubuntu.tar
+72M my_ubuntu.tar
+dmytriii@dmytrii-hp-pavilion-laptop-14-dv0xxx:~/Desktop/Cursor/cursor_git/my_homeworks/Homework9$ ls
+my_ubuntu.tar
+dmytriii@dmytrii-hp-pavilion-laptop-14-dv0xxx:~/Desktop/Cursor/cursor_git/my_homeworks/Homework9$ touch task_1.txt
+dmytriii@dmytrii-hp-pavilion-laptop-14-dv0xxx:~/Desktop/Cursor/cursor_git/my_homeworks/Homework9$ mkdir my_ubuntu
+dmytriii@dmytrii-hp-pavilion-laptop-14-dv0xxx:~/Desktop/Cursor/cursor_git/my_homeworks/Homework9$ ls
+my_ubuntu  my_ubuntu.tar  task_1.txt
+dmytriii@dmytrii-hp-pavilion-laptop-14-dv0xxx:~/Desktop/Cursor/cursor_git/my_homeworks/Homework9$ tar -xvf my_ubuntu.tar -C my_ubuntu/
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/VERSION
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/json
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/layer.tar
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/VERSION
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/json
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/layer.tar
+7e0aa2d69a153215c790488ed1fcec162015e973e49962d438e18249d16fa9bd.json
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/VERSION
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/json
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/layer.tar
+manifest.json
+dmytriii@dmytrii-hp-pavilion-laptop-14-dv0xxx:~/Desktop/Cursor/cursor_git/my_homeworks/Homework9$ ls my_ubuntu
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72
+7e0aa2d69a153215c790488ed1fcec162015e973e49962d438e18249d16fa9bd.json
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc
+manifest.json
