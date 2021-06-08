@@ -14,7 +14,7 @@ def setup_module(module):
 def test_move_available():
     assert 3 not in game.available_moves()
     assert 7 not in game.available_moves()
-    assert 4 in gamHome.available_moves()
+    assert 4 in game.available_moves()
 
 
 def test_make_move():
