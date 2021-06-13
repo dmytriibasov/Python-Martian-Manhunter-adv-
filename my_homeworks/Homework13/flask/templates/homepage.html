@@ -14,13 +14,15 @@
             <form action="/search" method="POST">
                 <h2>Search weather for your city</h2>
                 <div class="select-group">
-                    <label for="city">Choose your city:</label>
-                    <select name="city">
+                    <label for="cities">Choose your city:</label>
+                    <select name="cities" multiple>
                         <option value="london">London</option>
                         <option value="lviv">Lviv</option>
                         <option value="kiev">Kiev</option>
                         <option value="paris">Paris</option>
-                     </select>
+                        <option value="berlin">Berlin</option>
+                        <option value="lisbon">Lisbon</option>
+                    </select>
                 </div>
                 <div class="button-list">
                     <button type="submit">Check Weather</button>
