@@ -19,12 +19,8 @@ def test_search_weather(client):
 
 
 def test_search_weather_v2(client, mocker, fake_weather_api=ApiMock):
-
     fake_weather_api = fake_weather_api()
     mocker.patch('requests.request', return_value=fake_weather_api)
-    print(f'My STATUS CODE {fake_weather_api.status_code}')
     response = client.post("/search", data={"cities": "Lisbon"})
-    print(f'!!! My response is: {response}')
     assert response.status_code == 200
-    print(f'!!! Response DATA: {response.data}')
     assert b"Weather for Lisbon" in response.data
