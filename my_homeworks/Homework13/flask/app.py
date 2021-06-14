@@ -31,9 +31,11 @@ def search_weather():
 
         if response.status_code == 200:
             data = response.json()
+            print(data)
             weather = data['list'][0]
+            print(weather)
             weather_data.append(weather)
-
+            print(weather_data)
         else:
             return Response(status=response.status_code)
 
@@ -50,7 +52,7 @@ def search_by_location():
     latitude = request.form.get("lat")
 
     querystring = {"q": "", "cnt": "1", "mode": "null", "lon": longitude, "type": "link, accurate", "lat": latitude,
-                   "units": "metric", 'country': 'UA'}
+                   "units": "metric"}
 
     headers = {
         'x-rapidapi-key': Config.WEATHER_API_KEY,
