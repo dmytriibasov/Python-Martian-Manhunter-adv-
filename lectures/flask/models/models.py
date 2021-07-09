@@ -1,8 +1,8 @@
 """Data models."""
 from app import db
+from helpers.serializers import Serializer
 
-
-class User(db.Model):
+class User(db.Model, Serializer):
     """Data model for user accounts."""
     __tablename__ = 'users'
     id = db.Column(
@@ -13,6 +13,11 @@ class User(db.Model):
         db.String(64),
         index=False,
         unique=True,
+        nullable=False
+    )
+    password = db.Column(
+        db.String(64),
+        unique=False,
         nullable=False
     )
     email = db.Column(
@@ -44,6 +49,21 @@ class User(db.Model):
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
+    @property
+    def serialize(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "email": self.email,
+            'bio': self.bio,
+        }
+
+
+article_categories = db.Table('article_categories',
+                        db.Column("article_id", db.Integer, db.ForeignKey('articles.id')),
+                        db.Column("category_id", db.Integer, db.ForeignKey("category.id"))
+                    )
+
 
 class Article(db.Model):
     __tablename__ = 'articles'
@@ -52,6 +72,7 @@ class Article(db.Model):
         primary_key=True
     )
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    # author = db.relationship("User", backref='articles', lazy=True)
     title = db.Column(
         db.String(255),
         nullable=False,
@@ -82,6 +103,7 @@ class Article(db.Model):
         index=False,
         unique=False
     )
+    categories = db.relationship("Category", secondary=article_categories, back_populates="articles")
 
     @property
     def serialize(self):
@@ -100,7 +122,8 @@ class Category(db.Model):
         db.Integer,
         primary_key=True
     )
-
     title = db.Column(
         db.String(350)
     )
+
+    articles = db.relationship("Article", secondary=article_categories, back_populates="categories")
