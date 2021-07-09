@@ -1,0 +1,19 @@
+    1  touch story.txt
+    2  echo "Your story" > story.txt
+    3  cat story.txt
+    4  apt-get install cowsay
+    5  ls -ll
+    6  cat story.txt | cowsay
+    7  apt-get update
+    8  apt-get install -y cowsay
+    9  cat story.txt | cowsay
+   10  cat story.txt|cowsay
+   11  whereis cowsay
+   12  /usr/games/cowsay moo
+   13  cat story.txt | /usr/games/cowsay
+   14  export PATH=$PATH:/usr/games
+   15  cat story.txt | cowsay
+   16  quit
+   17  history
+root@3aab3535eb9a:/# 
+
