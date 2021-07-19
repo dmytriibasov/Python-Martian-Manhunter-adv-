@@ -3,6 +3,7 @@ from flask import render_template, request, Response
 from config import Config, articles
 from flask_restful import Resource, Api
 from models.models import Article, User
+from datetime import datetime
 
 
 @app.route('/', methods=["GET"])
@@ -67,16 +68,59 @@ class ArticlesEntity(Resource):
 
 
 class Users(Resource):
+
+    def post(self):
+        data = request.json
+        current_date = str(datetime.now())
+        user = User(
+            username=data.get('username'),
+            email=data.get('email'),
+            created=current_date,
+            bio=data.get('bio'),
+            admin=data.get('admin')
+        )
+        db.session.add(user)
+        db.session.commit()
+        return user.serialize
+
     def get(self):
-        user = User.query.get(1)
-        serialized_articles = []
-        for article in user.articles:
-            print(article)
-            serialized_articles.append(article.serialize)
-        return serialized_articles
+        users = User.query
+        if request.args.get("sort_by"):
+            users = users.order_by(request.args.get("sort_by"))
+
+        users = users.all()
+        serialized_users = []
+        for user in users:
+            serialized_users.append(user.serialize)
+        return serialized_users
+
+
+class UserEntity(Resource):
+
+    def put(self, id):
+        data = request.json
+        user = User.query.get(id)
+
+        if user is None:
+            return Response(status=404)
+        else:
+            user.username = data.get('username')
+            user.email = data.get('email')
+            user.created = data.get('created')
+            user.bio = data.get('bio')
+            user.admin = data.get('admin')
+            db.session.commit()
+            return user.serialize
+
+    def get(self, id):
+        user = User.query.get(id)
+        if user == None:
+            return Response(status=404)
+        return user.serialize
 
 
 api.add_resource(MenuItem, '/menu-items')
 api.add_resource(Articles, '/articles')
-api.add_resource(Users, '/users')
 api.add_resource(ArticlesEntity, '/articles/<int:id>')
+api.add_resource(Users, '/users')
+api.add_resource(UserEntity, '/users/<int:id>')

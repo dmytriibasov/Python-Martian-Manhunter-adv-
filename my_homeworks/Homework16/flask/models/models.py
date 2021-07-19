@@ -39,6 +39,18 @@ class User(db.Model):
         unique=False,
         nullable=False
     )
+
+    @property
+    def serialize(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "email": self.email,
+            'created': str(self.created),
+            "bio": self.bio,
+            "admin": self.admin
+        }
+
     articles = db.relationship("Article", backref='author', lazy=True)
 
     def __repr__(self):
